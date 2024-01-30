@@ -1,0 +1,1 @@
+export const LONELYSWORD_BLUE = "#3F82FF"
