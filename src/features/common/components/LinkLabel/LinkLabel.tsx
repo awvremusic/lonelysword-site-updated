@@ -3,7 +3,6 @@ import { LinkLabelProps } from "./LinkLabelProps";
 export const LinkLabel = (props: LinkLabelProps) => {
     const {
         label,
-        icon,
         ...other
     } = props;
 
@@ -11,7 +10,7 @@ export const LinkLabel = (props: LinkLabelProps) => {
         <span
             {...other}
         >
-            {icon} {label}
+            {label}
         </span>
     );
 }

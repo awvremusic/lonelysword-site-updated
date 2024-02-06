@@ -54,7 +54,6 @@ export async function GET(request: Request) {
             bios {
                 id
               artistName
-              shortDescription
               fullStory {
                 text
                 html
@@ -70,12 +69,6 @@ export async function GET(request: Request) {
                 fileName
               }
               musicLinks {
-                id
-                name
-                platform
-                url
-              }
-              socialLinks {
                 id
                 name
                 platform

@@ -4,6 +4,13 @@ type HygraphAsset = {
     url: string;
 }
 
+enum MusicPlatform {
+    SPOTIFY = 'spotify',
+    APPLE_MUSIC = 'apple',
+    SOUNDCLOUD = 'soundcloud',
+    YOUTUBE = 'youtube',
+}
+
 enum MusicType {
     ALBUM = 'Album',
     SINGLE = 'Single',
@@ -96,7 +103,6 @@ type BioData = {
     }
     pictures: HygraphAsset[];
     musicLinks: ExternalLinkData[];
-    socialLinks: ExternalLinkData[];
     funFacts: ExtraArtistInfoData;
 }
 

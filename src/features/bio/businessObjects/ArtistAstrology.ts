@@ -33,4 +33,8 @@ export class ArtistAstrology {
     get risingSign(): string {
         return this._risingSign;
     }
+
+    getDisplayString(): string {
+        return `☀️ ${this._sunSign} / 🌑 ${this._moonSign} / ⬆️ ${this._risingSign}`;
+    }
 }

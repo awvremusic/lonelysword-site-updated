@@ -3,7 +3,6 @@ import { Footer, useIsMobile } from "@awvremusic/awvre-ui-web";
 import { LONELYSWORD_BLUE } from "../../Constants";
 import { useRouter } from 'next/navigation';
 import React from "react";
-import { Container } from "@mui/material";
 import DesktopNavigation from "../DesktopNavigation";
 import MobileNavigation from "../MobileNavigation";
 
@@ -15,9 +14,9 @@ export default function PageContainer({ children }: { children: React.ReactNode 
     if (isMobile) return (
         <div className="page-wrapper">
             <MobileNavigation />
-            <Container>
+                <main className="flex min-h-screen flex-col items-center justify-between">
                 {children}
-            </Container>
+    </main>
             <Footer
                 text={`.lonelysword/AWVRE❤️ © ${currentYear}`}
                 imageUrl="/images/lonelysword_text.svg"
@@ -30,10 +29,13 @@ export default function PageContainer({ children }: { children: React.ReactNode 
 
     return (
         <div className="page-wrapper">
-        <Container>
+            
             <DesktopNavigation />
+            <main className="flex min-h-screen flex-col items-center justify-between">
+
             {children}
-        </Container>
+            </main>
+
         <Footer
             text={`.lonelysword/AWVRE❤️ © ${currentYear}`}
             imageUrl="/images/lonelysword_text.svg"
