@@ -1,15 +1,17 @@
+import { MusicPlatform } from "@/features/common/Constants";
+
 export class ExternalLink {
     private readonly _id: string;
     private readonly _name: string;
     private readonly _url: string;
-    private readonly _platform: string;
+    private readonly _platform: MusicPlatform;
 
     constructor(data: Partial<ExternalLinkData>) {
         const {
             id = "",
             name = "",
             url = "",
-            platform = "",
+            platform = MusicPlatform.UNKNOWN,
         } = data;
 
         this._id = id;
@@ -30,7 +32,7 @@ export class ExternalLink {
         return this._url;
     }
 
-    get platform(): string {
+    get platform(): MusicPlatform {
         return this._platform;
     }
 }

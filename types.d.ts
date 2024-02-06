@@ -4,35 +4,6 @@ type HygraphAsset = {
     url: string;
 }
 
-enum MusicPlatform {
-    SPOTIFY = 'spotify',
-    APPLE_MUSIC = 'apple',
-    SOUNDCLOUD = 'soundcloud',
-    YOUTUBE = 'youtube',
-}
-
-enum MusicType {
-    ALBUM = 'Album',
-    SINGLE = 'Single',
-    EP = 'EP',
-    EXPERIMENT = 'Experiment',
-}
-
-enum ZodianSigns {
-    ARIES = 'Aries',
-    TAURUS = 'Taurus',
-    GEMINI = 'Gemini',
-    CANCER = 'Cancer',
-    LEO = 'Leo',
-    VIRGO = 'Virgo',
-    LIBRA = 'Libra',
-    SCORPIO = 'Scorpio',
-    CAPRICORN = 'Capricorn',
-    AQUARIUS = 'Aquarius',
-    PISCES = 'Pisces',
-    SAGITTARIUS = 'Sagittarius',
-}
-
 type ArtistAstrologyData = {
     id: string;
     sunSign: ZodianSigns;
@@ -89,7 +60,7 @@ type ExternalLinkData = {
     id: string;
     name: string
     url: string
-    platform: string
+    platform: MusicPlatform
 }
 
 type BioData = {

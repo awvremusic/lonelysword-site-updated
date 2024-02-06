@@ -14,7 +14,7 @@ export default function PageContainer({ children }: { children: React.ReactNode 
     if (isMobile) return (
         <div className="page-wrapper">
             <MobileNavigation />
-                <main className="flex min-h-screen flex-col items-center justify-between">
+                <main className="flex min-h-screen flex-col items-center justify-between p-4">
                 {children}
     </main>
             <Footer
@@ -31,8 +31,7 @@ export default function PageContainer({ children }: { children: React.ReactNode 
         <div className="page-wrapper">
             
             <DesktopNavigation />
-            <main className="flex min-h-screen flex-col items-center justify-between">
-
+            <main className="flex min-h-screen flex-col items-center justify-between p-4">
             {children}
             </main>
 

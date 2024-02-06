@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ExternalLink } from "../ExternalLink";
 import { MediaLinkIconProps } from "./MediaLinkIconProps";
 import {faSpotify, faSoundcloud, faApple, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { MusicPlatform } from "../../Constants";
 
 const SPOTIFY_COLOR = "#1DB954";
 const APPLE_MUSIC_COLOR = "#FC3C44";
@@ -16,6 +17,8 @@ export const MediaLinkIcon = (props: MediaLinkIconProps) => {
         className,
         ...other
     } = props;
+
+    if (platform === MusicPlatform.UNKNOWN) return null;
 
     let color = "";
     switch (platform) {
@@ -50,17 +53,14 @@ export const MediaLinkIcon = (props: MediaLinkIconProps) => {
     }
 
     return (
-        <span
-            {...other}
-        className={`media-link border-r-4 p-2 flex flex-row ${className ?? ""}`}
-        style={{backgroundColor: color}}
-        >
-            {icon && <FontAwesomeIcon icon={icon} color={"white"} className="fa-solid fa-lg mr-4" />}
             <ExternalLink
+                {...other}
                 href={link}
+                className={`media-link rounded-lg p-2 m-4 flex flex-row ${className ?? ""} overflow-hidden text-white text-md font-bold justify-center items-center`}
+                style={{backgroundColor: color}}
             >
+                {icon && <FontAwesomeIcon icon={icon} color={"white"} className="fa-solid fa-lg mr-4" />}
                 {name}
             </ExternalLink>
-        </span>
     )
 }
