@@ -1,11 +1,11 @@
 'use client'
 
-import { Typography } from "@/features/common/components/Typography";
+import { NameLogo } from "@/features/common/components/NameLogo";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <Typography variant="h1">Home</Typography>
-    </main>
+    <article className="flex flex-col items-center">
+      <NameLogo className="mb-8" />
+    </article>
   );
 }

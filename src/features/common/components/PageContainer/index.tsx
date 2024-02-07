@@ -21,7 +21,7 @@ export default function PageContainer({ children }: { children: React.ReactNode 
                 text={`.lonelysword/AWVRE❤️ © ${currentYear}`}
                 imageUrl="/images/lonelysword_text.svg"
                 backgroundColor={LONELYSWORD_BLUE}
-                animationDuration={250}
+                animationDuration={150}
                 className="text-white"
             />
         </div>
@@ -39,7 +39,7 @@ export default function PageContainer({ children }: { children: React.ReactNode 
             text={`.lonelysword/AWVRE❤️ © ${currentYear}`}
             imageUrl="/images/lonelysword_text.svg"
             backgroundColor={LONELYSWORD_BLUE}
-            animationDuration={250}
+            animationDuration={50}
             className="text-white"
         />
         </div>
