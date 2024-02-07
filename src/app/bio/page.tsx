@@ -6,7 +6,6 @@ import { MediaLinksView } from '@/features/common/components/MediaLinksView';
 import { RichTextView } from '@/features/common/components/RichTextView';
 import { Typography } from '@/features/common/components/Typography';
 import { Spinner, useIsMobile } from '@awvremusic/awvre-ui-web';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import { styled } from 'styled-components';
 
@@ -18,11 +17,6 @@ const Badge = styled.span`
     font-weight: bold;
     font-size: 0.85rem;
 `;
-
-export const metaData: Metadata = {
-    title: "AWVRE Music - Bio",
-    description: "AWVRE Music - Bio",
-}    
 
 export default function Bio() {
     const { biography, isLoading, error } = useGetBio();

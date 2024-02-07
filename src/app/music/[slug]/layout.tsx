@@ -49,10 +49,10 @@ export async function generateMetadata(
         } = musicRelease;
 
         return {
-            title: `AWVRE Music - ${title}`,
+            title: `.lonelysword - ${title}`,
             description: description,
             openGraph: {
-                title: `AWVRE Music - ${title}`,
+                title: `.lonelysword - ${title}`,
                 description: description,
                 url: `https://lonelysword.com/music/${slug}`,
                 tags: keywords,
@@ -69,8 +69,8 @@ export async function generateMetadata(
     }
 
     return {
-        title: "AWVRE Music - Music Release",
-        description: "AWVRE Music - Music Release",
+        title: ".lonelysword - Music Release",
+        description: ".lonelysword - Music Release",
     }
   }
 
