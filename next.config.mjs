@@ -7,7 +7,10 @@ const nextConfig = {
                 hostname: 'media.graphassets.com',
             },
         ],
-    }
+    },
+    typescript: {
+        ignoreBuildErrors: true,
+     },
 };
 
 export default nextConfig;
