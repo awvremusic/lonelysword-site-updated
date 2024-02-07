@@ -9,7 +9,7 @@ export const MediaLinksView = (props: MediaLinksViewProps) => {
     } = props
 
     return (
-            <section {...other} className={`my-4 flex flex-col justify-center ${className ?? ""}`}>
+            <section {...other} className={`my-4 flex flex-row flex-wrap items-center gap-4 justify-center ${className ?? ""}`}>
                 { links.map((outlet, index) => (
                     <MediaLinkIcon
                     key={index}

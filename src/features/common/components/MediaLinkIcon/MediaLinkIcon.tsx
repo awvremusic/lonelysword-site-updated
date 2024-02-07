@@ -56,11 +56,11 @@ export const MediaLinkIcon = (props: MediaLinkIconProps) => {
             <ExternalLink
                 {...other}
                 href={link}
-                className={`media-link rounded-lg p-2 m-4 flex flex-row ${className ?? ""} overflow-hidden text-white text-md font-bold justify-center items-center`}
-                style={{backgroundColor: color}}
+                className={`media-link rounded-full p-2 m-4 flex flex-row ${className ?? ""} overflow-hidden text-white text-md font-bold justify-center items-center`}
+                style={{backgroundColor: color, width: "2.5rem", height: "2.5rem"}}
             >
-                {icon && <FontAwesomeIcon icon={icon} color={"white"} className="fa-solid fa-lg mr-4" />}
-                {name}
+                {icon && <FontAwesomeIcon icon={icon} color={"white"} className="fa-solid fa-lg" />}
+                {/* {name} */}
             </ExternalLink>
     )
 }
