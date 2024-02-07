@@ -8,6 +8,7 @@ import { Typography } from "../common/components/Typography";
 import { useGetBio } from "./ApiSlice";
 import Image from "next/image";
 import { ExternalLink } from "../common/components/ExternalLink";
+import { Page } from "../common/components/Page";
 
 const Badge = styled.span`
     padding: 0.2rem 1rem;
@@ -47,9 +48,10 @@ export const BioPage = () => {
     } = biography;
     
     return (
-        <article
-            className="flex flex-col items-center justify-center text-center"
-            style={!isMobile ? {maxWidth: "50%"} : {maxWidth: "100%"}}
+        <Page
+        transitionDuration={1000}
+        className="flex flex-col items-center justify-center text-center"
+        style={!isMobile ? {maxWidth: "50%"} : {maxWidth: "100%"}}
         >
             { profilePicture.url !== "" && <Image src={biography.profilePicture.url} alt={biography.profilePicture.fileName} width={200} height={200} priority className="rounded-full overflow-hidden" style={{width: 200, height: 200, objectFit: "cover"}} /> }
             { artistName !== "" && <Typography variant="h1" className='my-4'>{biography.artistName}</Typography> }
@@ -60,6 +62,6 @@ export const BioPage = () => {
             { musicOutlets.length > 0 && (
                 <MediaLinksView links={musicOutlets} className="my-4" />
             ) }
-        </article>
+        </Page>
     );
 }

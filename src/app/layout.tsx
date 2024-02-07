@@ -6,7 +6,7 @@ import AppProviders from "@/features/common/components/AppProviders";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://lonelysword.com"),
   alternates: {
     canonical: "/",

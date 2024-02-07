@@ -17,7 +17,7 @@ export const DesktopNavigationTab = (props: DesktopNavigationTabProps) => {
     return (
         <div
         {...other}
-            className={`desktop-navigation-tab cursor-pointer flex flex-row gap-2 flex-nowrap justify-start items-center relative p-2 hover:text-orange-500 ${className ?? ""}`}
+            className={`desktop-navigation-tab cursor-pointer flex flex-row gap-2 flex-nowrap justify-start items-center relative p-2 ${className ?? ""}`}
             onClick={handleClick}
             >
                 {leftComponent}

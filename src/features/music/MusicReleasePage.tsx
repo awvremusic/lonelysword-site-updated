@@ -6,6 +6,7 @@ import { Typography } from "../common/components/Typography";
 import { useMusicRelease } from "./ApiSlice";
 import { MusicTypeBadge } from "./components/MusicTypeBadge";
 import Image from "next/image";
+import { Page } from "../common/components/Page";
 
 export const MusicReleasePage = ({slug}: {slug: string}) => {
 
@@ -34,7 +35,8 @@ export const MusicReleasePage = ({slug}: {slug: string}) => {
     } = musicRelease;
 
     return (
-        <article className="flex flex-col items-center">
+        <Page transitionDuration={1000}>
+        <article className="flex flex-col items-center mb-32">
             <div>
             <div className="flex flex-row justify-between items-center w-full mb-4">
                 <Typography variant="subtitle1">{releaseDate}</Typography>
@@ -60,12 +62,13 @@ export const MusicReleasePage = ({slug}: {slug: string}) => {
                 </>
             )}
             {keywords.length > 0 && (
-            <div className="flex flex-row flex-wrap w-full mb-4 gap-3">
+            <div className="flex flex-row flex-wrap w-full mt-8 mb-4 gap-3">
                 {keywords.map((keyword, index) => (
-                    <Typography key={index} variant="body1" className=" bg-blue-400 text-blue-600 font-bold rounded-md p-2">{keyword}</Typography>
+                    <Typography key={index} variant="body2" className=" bg-blue-200 text-blue-600 font-semibold rounded-md p-1">{keyword}</Typography>
                 ))}
             </div>
             )}
         </article>
+        </Page>
     );
 }

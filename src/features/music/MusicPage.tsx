@@ -3,6 +3,7 @@ import { Spinner } from "@awvremusic/awvre-ui-web";
 import { useRouter } from "next/navigation";
 import { useDiscography } from "./ApiSlice";
 import { MusicCard } from "./components/MusicCard";
+import { Page } from "../common/components/Page";
 
 export const MusicPage = () => {
     const {
@@ -22,18 +23,20 @@ export const MusicPage = () => {
     )
 
     return (
-        <article
-            className={`flex flex-row flex-wrap justify-center items-center gap-4 my-8 mx-auto self-center`}
-            style={{maxWidth: 1600}}
-        >
-            {discography.map((album, index) => (
-                <MusicCard
-                    key={index}
-                    discography={album}
-                    onClick={() => goToMusicRelease(album.slug)}
-                    className="my-8"
-                />
-            ))}
-        </article>
+        <Page transitionDuration={1000}>
+            <article
+                className={`flex flex-row flex-wrap justify-center items-center gap-4 my-8 mx-auto self-center`}
+                style={{maxWidth: 1600}}
+            >
+                {discography.map((album, index) => (
+                    <MusicCard
+                        key={index}
+                        discography={album}
+                        onClick={() => goToMusicRelease(album.slug)}
+                        className="my-8"
+                    />
+                ))}
+            </article>
+        </Page>
     );
 }
