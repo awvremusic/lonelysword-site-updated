@@ -5,9 +5,59 @@ import { Typography } from "@/features/common/components/Typography";
 import { useMusicRelease } from "@/features/music/ApiSlice";
 import { MusicTypeBadge } from "@/features/music/components/MusicTypeBadge";
 import { Spinner } from "@awvremusic/awvre-ui-web";
+import axios from "axios";
+import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 
-export default function MusicReleasePage({ params }: { params: { slug: string } }) {
+type Props = {
+    params: {
+        slug: string;
+    };
+}
+
+export async function generateMetadata(
+    { params }: Props,
+  ): Promise<Metadata> {
+    const { slug } = params;
+
+    const response = await axios.get(`/api/music/${slug}`);
+
+    if (response.status === 200) {
+        const musicRelease = response.data;
+        const {
+            title,
+            keywords,
+            coverArt,
+            description,
+        } = musicRelease;
+
+        return {
+            title: `AWVRE Music - ${title}`,
+            description: description,
+            openGraph: {
+                title: `AWVRE Music - ${title}`,
+                description: description,
+                url: `https://lonelysword.com/music/${slug}`,
+                tags: keywords,
+                images: [
+                    {
+                        url: coverArt,
+                        width: 200,
+                        height: 200,
+                        alt: title,
+                    },
+                ],
+            },
+        };
+    }
+
+    return {
+        title: "AWVRE Music - Music Release",
+        description: "AWVRE Music - Music Release",
+    }
+  }
+
+export default function MusicReleasePage({ params }: Props) {
     const { slug } = params;
 
     const { musicRelease, isLoading, error } = useMusicRelease(slug);
