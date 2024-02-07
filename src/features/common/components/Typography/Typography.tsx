@@ -58,10 +58,19 @@ export const Typography = (props: TypographyProps) => {
             return (
                 <h6
                 {...other}
-                className={`typography text-base font-bold ${other.className ?? ""}`}
+                className={`typography text-md font-bold ${other.className ?? ""}`}
                 >
                     {children}
                 </h6>
+            );
+        case "subtitle1":
+            return (
+                <p
+                {...other}
+                className={`typography text-sm font text-gray-400 ${other.className ?? ""}`}
+                >
+                    {children}
+                </p>
             );
             default:
                 return (

@@ -23,20 +23,26 @@ type ExtraArtistInfoData = {
     artistAstrology: ArtistAstrologyData;
 }
 
-type LiveMusicData = {
-    id: string;
+type BriefMusicData = {
+    slug: string;
     musicTitle: string;
     musicType: MusicType;
     releaseDate: string;
-    slug: string;
     spotifyUri: string;
     appleMusicUri: string;
     soundCloudUri: string;
+    albumArtwork: HygraphAsset;
+}
+
+type LiveMusicData = {
     article: {
-        text: string;
         html: string;
     }
-}
+    keywords: string[];
+    learningPoints: string[];
+    description: string;
+    tagline: string;
+} & BriefMusicData
 
 type SocialOutletData = {
     id: string;

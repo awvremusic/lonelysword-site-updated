@@ -1,6 +1,6 @@
 import { ArtistAstrology } from "./ArtistAstrology";
 import { ArtistLocation } from "./ArtistLocation";
-import { ExternalLink } from "./ExternalLink";
+import { ExternalLink } from "../../common/businessObject/ExternalLink";
 
 export class Biography {
     private readonly _id: string;

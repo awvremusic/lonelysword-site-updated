@@ -3,6 +3,8 @@ import { useGetBio } from '@/features/bio/ApiSlice';
 import { LONELYSWORD_BLUE } from '@/features/common/Constants';
 import { ExternalLink } from '@/features/common/components/ExternalLink';
 import { MediaLinkIcon } from '@/features/common/components/MediaLinkIcon';
+import { MediaLinksView } from '@/features/common/components/MediaLinksView';
+import { RichTextView } from '@/features/common/components/RichTextView';
 import { Typography } from '@/features/common/components/Typography';
 import { Spinner, useIsMobile } from '@awvremusic/awvre-ui-web';
 import Image from 'next/image';
@@ -54,19 +56,10 @@ export default function Bio() {
             { artistName !== "" && <Typography variant="h1" className='my-4'>{biography.artistName}</Typography> }
             { location !== "" && <Badge className='my-4'>{location}</Badge> }
             { artistAstrology !== undefined && <Typography variant='subtitle1' className='my-4'>{artistAstrology.getDisplayString()}</Typography> }
-            { fullStory !== "" && <Typography variant='body1' className='my-4' dangerouslySetInnerHTML={{__html: fullStory}}></Typography> }
+            { fullStory !== "" && <RichTextView innerHtml={fullStory} className='my-4' /> }
             <Typography variant='body1' className='my-4'>I've started a new project! Check me out: <ExternalLink href="https://quick.awvremusic.com" className="text-blue-600 underline cursor-pointer">AWVRE Music</ExternalLink></Typography>
             { musicOutlets.length > 0 && (
-                <section className='my-4 flex flex-col justify-center'>
-                    { musicOutlets.map((outlet, index) => (
-                        <MediaLinkIcon
-                        key={index}
-                        name={outlet.name}
-                        link={outlet.url}
-                        platform={outlet.platform}
-                        />
-        ))}
-                </section>
+                <MediaLinksView links={musicOutlets} className="my-4" />
             ) }
         </article>
     );

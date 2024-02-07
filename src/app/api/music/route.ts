@@ -1,68 +1,43 @@
 import axios from "axios";
 
-const BIOGRAPHY_QUERY = `
+const DISCOGRAPHY_QUERY = `
 {
-    bios {
+    liveMusics {
         id
-      artistName
-      fullStory {
-        text
-        html
-      }
-      profilePicture {
-        id
+        slug
+      musicTitle
+      musicType
+      spotifyUri
+      appleMusicUri
+      soundCloudUri
+      releaseDate
+      albumArtwork {
         url
-        fileName
-      }
-      pictures {
-        id
-        url
-        fileName
-      }
-      musicLinks {
-        id
-        name
-        platform
-        url
-      }
-      funFacts {
-        id
-        artistLocation {
-          id
-          city
-          state
-        }
-        artistAstrology {
-          id
-          sunSign
-          moonSign
-          risingSign
-        }
       }
     }
   }
-  `;
+`
 
 export async function GET() {
     const hygraphContentUrl = process.env.HYGRAPH_CONTENT_URL;
     const hygraphApiKey = process.env.HYGRAPH_API_KEY;
 
     const response = await axios.post(hygraphContentUrl, JSON.stringify({
-        query: BIOGRAPHY_QUERY,
+        query: DISCOGRAPHY_QUERY,
 }), {
         headers: {
             "Content-Type": "application/json",
             'Accept': 'application/json',
             "Authorization": `Bearer ${hygraphApiKey}`,
         }
-        }).then((response) => response.data.data.bios[0])
+        }).then((response) => response.data.data.liveMusics)
         .catch((error) => {
             console.error(error.response.data);
             return null;
         });
 
     if (!response) {
-        return new Response(JSON.stringify({ error: "Error fetching biography" }), {
+        return new Response(JSON.stringify({ error: "Error fetching discography", data: [], success: false }), {
             headers: {
                 "Content-Type": "application/json",
             },

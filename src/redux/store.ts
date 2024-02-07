@@ -1,12 +1,14 @@
 import { bioApiSlice } from "@/features/bio/ApiSlice";
+import { musicApi } from "@/features/music/ApiSlice";
 import { configureStore } from "@reduxjs/toolkit";
 
 const store = configureStore({
     reducer: {
         [bioApiSlice.reducerPath]: bioApiSlice.reducer,
+        [musicApi.reducerPath]: musicApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(bioApiSlice.middleware),
+        getDefaultMiddleware().concat(bioApiSlice.middleware, musicApi.middleware),
 });
 
 export const makeStore = () => store;
