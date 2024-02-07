@@ -14,7 +14,7 @@ export const MusicCard = (props: MusicCardProps) => {
     return (
         <div
         {...other}
-            className={`music-card flex flex-col items-center justify-center overflow-hidden rounded-lg shadow-md m-4 relative ${className ?? ""}`}
+            className={`music-card flex flex-col items-center justify-center overflow-hidden rounded-lg shadow-md m-4 relative cursor-pointer ${className ?? ""}`}
         >
             <MusicTypeBadge musicType={discography.type} className="absolute top-0 left-0" />
             <Image

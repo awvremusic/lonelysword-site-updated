@@ -72,6 +72,15 @@ export const Typography = (props: TypographyProps) => {
                     {children}
                 </p>
             );
+            case "body2":
+                return (
+                    <p
+                    {...other}
+                    className={`typography text-sm ${other.className ?? ""}`}
+                    >
+                        {children}
+                    </p>
+                )
             default:
                 return (
                     <p

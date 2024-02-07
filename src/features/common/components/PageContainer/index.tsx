@@ -3,8 +3,8 @@ import { Footer, useIsMobile } from "@awvremusic/awvre-ui-web";
 import { LONELYSWORD_BLUE } from "../../Constants";
 import { useRouter } from 'next/navigation';
 import React from "react";
-import DesktopNavigation from "../DesktopNavigation";
 import MobileNavigation from "../MobileNavigation";
+import DesktopNavigationView from "../DesktopNavigationView/DesktopNavigationView";
 
 export default function PageContainer({ children }: { children: React.ReactNode }) {
     const Router = useRouter();
@@ -30,7 +30,7 @@ export default function PageContainer({ children }: { children: React.ReactNode 
     return (
         <div className="page-wrapper">
             
-            <DesktopNavigation />
+            <DesktopNavigationView />
             <main className="flex min-h-screen flex-col items-center justify-center p-4">
             {children}
             </main>

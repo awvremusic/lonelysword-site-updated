@@ -7,6 +7,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { Drawer } from "../Drawer";
 import { Divider } from "../Divider";
 import { Typography } from "../Typography";
+import { useHasScrolled } from "../../hooks/useHasScrolled";
 
 const MobileNavigation = () => {
     const {
@@ -14,20 +15,9 @@ const MobileNavigation = () => {
         navigateToBio,
         navigateToMusic,
     } = useSiteNavigation();
-    const [hasScrolled, setHasScrolled] = React.useState(false);
     const [isOpen, setIsOpen] = React.useState(false);
 
-    React.useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 0) {
-                setHasScrolled(true);
-            } else {
-                setHasScrolled(false);
-            }
-        }
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    const hasScrolled = useHasScrolled();
 
     const onDrawerItemPress = (value: "home" | "music" | "bio") => {
         switch (value) {

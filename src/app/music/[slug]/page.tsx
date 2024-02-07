@@ -31,32 +31,39 @@ export async function generateMetadata(
     const hygraphContentUrl = process.env.HYGRAPH_CONTENT_URL;
     const hygraphApiKey = process.env.HYGRAPH_API_KEY;
 
+    const musicQuery = getMusicReleaseQuery(slug);
+
     const response = await axios.post(hygraphContentUrl, JSON.stringify({
-        query: getMusicReleaseQuery(slug),
+        query: musicQuery,
     }), {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
             Authorization: `Bearer ${hygraphApiKey}`,
         },
-    }).then((response) => response.data.data.liveMusic).catch((error) => null);
+    }).then((response) => {
+        return response.data.data.liveMusic
+    }).catch((error) => null);
 
-    if (response.status === 200) {
-        const musicRelease = response.data;
+    if (response) {
+        const musicRelease = response;
         const {
-            title,
+            musicTitle: title,
             keywords,
-            coverArt,
+            albumArtwork: { url: coverArt },
             description,
         } = musicRelease;
+        
+        const musicUrl = `https://lonelysword.com/music/${slug}`
+        const metaTitle = `.lonelysword - ${title}`;
 
         return {
-            title: `.lonelysword - ${title}`,
+            title: metaTitle,
             description: description,
             openGraph: {
-                title: `.lonelysword - ${title}`,
+                title: metaTitle,
                 description: description,
-                url: `https://lonelysword.com/music/${slug}`,
+                url: musicUrl,
                 tags: keywords,
                 images: [
                     {
@@ -67,6 +74,15 @@ export async function generateMetadata(
                     },
                 ],
             },
+            twitter: {
+                card: "summary_large_image",
+                site: musicUrl,
+                title: metaTitle,
+                description: description,
+                images: [
+                    coverArt
+                ]
+            }
         };
     }
 
