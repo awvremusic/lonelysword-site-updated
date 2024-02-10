@@ -40,7 +40,7 @@ export default function PageContainer({ children }: { children: React.ReactNode 
             imageUrl="/images/lonelysword_text.svg"
             backgroundColor={LONELYSWORD_BLUE}
             animationDuration={50}
-            className="text-white"
+            className="text-white h-32"
         />
         </div>
     );
