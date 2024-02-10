@@ -36,7 +36,7 @@ export const MusicReleasePage = ({slug}: {slug: string}) => {
 
     return (
         <Page transitionDuration={1000}>
-        <article className="flex flex-col items-center mb-32">
+        <article className="flex flex-col items-center mb-32" style={{maxWidth: 1600}}>
             <div>
             <div className="flex flex-row justify-between items-center w-full mb-4">
                 <Typography variant="subtitle1">{releaseDate}</Typography>
